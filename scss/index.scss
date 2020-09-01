@@ -1,0 +1,94 @@
+// @import '../bootstrap/scss/bootstrap';
+// @import 'custom-variables';
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hd {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  &__name {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 24px;
+  }
+
+  &__nav {
+    font-size: 16px;
+
+    a {
+      display: inline-block;
+      padding: 14px 14px;
+      color: #000;
+
+      &:hover {
+        background-color: #6c757d;
+      }
+    }
+  }
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px grey;
+}
+
+.title {
+  display: flex;
+
+  &__photo {
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 0 10px grey;
+  }
+
+  &__content {
+    flex: 1 1;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 26px;
+  }
+
+  &__job {
+    font-size: 20px;
+  }
+
+  &__social {
+  }
+}
+
+.desc {
+  display: flex;
+
+  &__about {
+    flex: 0 0 50%;
+    padding: 20px;
+  }
+
+  &__profile {
+    flex: 0 0 50%;
+    padding: 20px;
+
+    td {
+      padding: 10px;
+    }
+  }
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+}
