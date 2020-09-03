@@ -1,9 +1,5 @@
-// @import '../bootstrap/scss/bootstrap';
-// @import 'custom-variables';
-$primary-color: #63caf3;
-$secondary-color: #008be7;
-$background-color: #f0f0f0;
-$lighten-color: #888888;
+@import 'variables';
+@import 'resume';
 
 * {
   box-sizing: border-box;
@@ -26,13 +22,18 @@ body {
 }
 
 .hd {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  margin: 20px 0;
+  padding: 0 10%;
+  background-color: $background-color;
 
   &__name {
     display: inline-block;
+    margin: 0;
     padding: 10px 10px;
     font-size: 24px;
   }
@@ -79,12 +80,8 @@ body {
   padding: 10px 0;
   border-bottom: 1px solid $background-color;
 
-  &__title {
-    // padding: 10px 0;
-  }
-
   &__date {
-    color: $lighten-color;
+    color: $light-font-color;
   }
 
   &__wrapper {
@@ -99,7 +96,6 @@ body {
 }
 
 .about {
-  // display: flex;
   flex: 0 0 20%;
   margin-left: 15px;
   border-radius: 10px;
@@ -126,14 +122,14 @@ body {
     font-size: 20px;
   }
 
-  &__contact {
-    a {
-      color: blue;
-    }
+  &__location,
+  &__company,
+  &__email {
+    line-height: 1.6;
   }
 
-  &__text {
-    padding: 5px;
+  &__email-link:hover {
+    text-decoration: underline;
   }
 
   &__sns {

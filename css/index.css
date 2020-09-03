@@ -1,3 +1,44 @@
+.cv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.cv__header {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-color: #63caf3;
+}
+
+.cv__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.cv__col {
+  width: 50%;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -20,6 +61,9 @@ body {
 }
 
 .hd {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,11 +73,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 10%;
+  margin: 20px 0;
+  padding: 0 10%;
+  background-color: #f0f0f0;
 }
 
 .hd__name {
   display: inline-block;
+  margin: 0;
   padding: 10px 10px;
   font-size: 24px;
 }
@@ -141,12 +188,12 @@ body {
   font-size: 20px;
 }
 
-.about__contact a {
-  color: blue;
+.about__location, .about__company, .about__email {
+  line-height: 1.6;
 }
 
-.about__text {
-  padding: 5px;
+.about__email-link:hover {
+  text-decoration: underline;
 }
 
 .about__sns {

@@ -1,0 +1,28 @@
+.cv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &__header {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: $primary-color;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px 40px;
+  }
+
+  &__col {
+    width: 50%;
+  }
+}
