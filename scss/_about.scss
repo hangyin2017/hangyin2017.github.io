@@ -1,0 +1,43 @@
+.about {
+  flex: 0 0 20%;
+  margin-left: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  &__photo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    border-radius: 50%;
+  }
+
+  &__content {
+    flex: 1 1;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 26px;
+  }
+
+  &__job {
+    font-size: 20px;
+  }
+
+  &__location,
+  &__company,
+  &__email {
+    line-height: 1.6;
+  }
+
+  &__email-link:hover {
+    text-decoration: underline;
+  }
+
+  &__sns {
+    padding: 20px;
+    color: #000;
+    font-size: 28px;
+  }
+}

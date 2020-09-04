@@ -1,4 +1,7 @@
 @import 'variables';
+@import 'navbar';
+@import 'about';
+@import 'post';
 @import 'resume';
 
 * {
@@ -15,45 +18,11 @@ body {
   margin: 0;
   background-color: $background-color;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: scroll;
 }
 
 .surname {
   color: $secondary-color;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
-  padding: 0 10%;
-  background-color: $background-color;
-
-  &__name {
-    display: inline-block;
-    margin: 0;
-    padding: 10px 10px;
-    font-size: 24px;
-  }
-
-  &__nav {
-    font-size: 16px;
-  }
-
-  &__link {
-    display: inline-block;
-    padding: 14px 14px;
-    margin: 0 10px;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
-
-    &:hover,
-    &--active {
-      border-bottom: 3px solid $primary-color;
-    }
-  }
 }
 
 .container {
@@ -64,79 +33,11 @@ body {
 }
 
 .main {
-  flex: 0 0 80%;
-  padding: 0 20px;
+  flex: 0 0 79%;
   border-radius: 10px;
   background-color: #fff;
-}
-
-.post {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 150px;
-  padding: 10px 0;
-  border-bottom: 1px solid $background-color;
-
-  &__date {
-    color: $light-font-color;
-  }
-
-  &__wrapper {
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-  }
-
-  &__snapshot {
-    width: 100%;
-  }
-}
-
-.about {
-  flex: 0 0 20%;
-  margin-left: 15px;
-  border-radius: 10px;
-  background-color: #fff;
-
-  &__photo {
-    display: block;
-    width: 150px;
-    height: 150px;
-    margin: 50px auto;
-    border-radius: 50%;
-  }
-
-  &__content {
-    flex: 1 1;
-    text-align: center;
-  }
-
-  &__name {
-    font-size: 26px;
-  }
-
-  &__job {
-    font-size: 20px;
-  }
-
-  &__location,
-  &__company,
-  &__email {
-    line-height: 1.6;
-  }
-
-  &__email-link:hover {
-    text-decoration: underline;
-  }
-
-  &__sns {
-    padding: 20px;
-    color: #000;
-    font-size: 28px;
-  }
+  overflow: hidden;
+  transition: all 0.5s;
 }
 
 footer {
