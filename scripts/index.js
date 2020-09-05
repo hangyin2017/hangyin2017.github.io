@@ -6,16 +6,31 @@ import Projects from './views/Projects.js';
 import Resume from './views/Resume.js';
 
 const main = document.querySelector('.main');
+const pageMap = {
+  '#home': Home,
+  '#articles': Articles,
+  '#projects': Projects,
+  '#resume': Resume,
+};
+const navLinks = document.querySelectorAll('.navbar__link');
 
-const routes = {
-  '/': Home,
-  '/articles': Articles,
-  '/projects': Projects,
-  '/resume': Resume,
+const navigatePage = () => {
+  const hash = getHash();
+  changeNavbar(hash);
+  render(pageMap[hash], main);
 };
 
-const router = () => {
-  render(routes[location.pathname], main);
+const getHash = () => {
+  // let hash = location.hash;
+  // if (!pageMap[hash]) location.hash = hash = '#home';
+  return pageMap[location.hash] ? location.hash : (location.hash = '#home');
+};
+
+const changeNavbar = href => {
+  const activeNavLink = document.querySelector('.navbar__link--active');
+  const clickedNavLink = document.querySelector(`[href="${href}"]`);
+  activeNavLink.classList.remove('navbar__link--active');
+  clickedNavLink.classList.add('navbar__link--active');
 };
 
 const render = (View, element) => {
@@ -23,17 +38,7 @@ const render = (View, element) => {
   element.innerHTML = view.getHtml();
 };
 
-const handleNavClick = e => {
-  if (e.target.matches('.navbar__link')) {
-    e.preventDefault();
-    document.querySelector('.navbar__link--active').classList.remove('navbar__link--active');
-    e.target.classList.add('navbar__link--active');
-    history.pushState(null, null, e.target.href);
-    router();
-  }
+window.onload = () => {
+  window.onhashchange = navigatePage;
+  navigatePage();
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.addEventListener('click', handleNavClick);
-  router();
-});
