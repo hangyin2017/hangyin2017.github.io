@@ -10,43 +10,43 @@ export default class extends AbstractView {
     return `
       <div class="cv">
         <header class="cv__header">
-          <h1>RESUME</h1>
+          <h2>RESUME</h2>
         </header>
 
         <div class="cv__wrapper">
           <section class="cv__col">
-            <h2>EDUCATION</h2>
+            <h3>EDUCATION</h3>
             <div class="cv-card">
-              <h3 class="cv-card__title">Bachelor of Engineering</h3>
+              <h4 class="cv-card__title">Bachelor of Engineering</h4>
               <p class="cv-card__company">The University of Adelaide</p>
               <div class="cv-card__date">2015 - 2016</div>
             </div>
           </section>
 
           <section class="cv__col">
-            <h2>EXPERIENCE</h2>
+            <h3>EXPERIENCE</h3>
             <div class="cv-card">
-              <h3 class="cv-card__title">Web Developer</h3>
+              <h4 class="cv-card__title">Web Developer</h4>
               <p class="cv-card__company">Company</p>
               <div class="cv-card__date">2017 - 2020</div>
             </div>
             <div class="cv-card">
-              <h3 class="cv-card__title">Web Developer</h3>
+              <h4 class="cv-card__title">Web Developer</h4>
               <p class="cv-card__company">Company</p>
               <div class="cv-card__date">2017 - 2020</div>
             </div>
             <div class="cv-card">
-              <h3 class="cv-card__title">Web Developer</h3>
+              <h4 class="cv-card__title">Web Developer</h4>
               <p class="cv-card__company">Company</p>
               <div class="cv-card__date">2017 - 2020</div>
             </div>
             <div class="cv-card">
-              <h3 class="cv-card__title">Web Developer</h3>
+              <h4 class="cv-card__title">Web Developer</h4>
               <p class="cv-card__company">Company</p>
               <div class="cv-card__date">2017 - 2020</div>
             </div>
             <div class="cv-card">
-              <h3 class="cv-card__title">Web Developer</h3>
+              <h4 class="cv-card__title">Web Developer</h4>
               <p class="cv-card__company">Company</p>
               <div class="cv-card__date">2017 - 2020</div>
             </div>                                                
@@ -54,7 +54,7 @@ export default class extends AbstractView {
         </div>
 
         <div>
-          <h2>SKILLS</h2>
+          <h3>SKILLS</h3>
           <div class="cv__skillset">
             <div class="cv__skill">
               <i class="fab fa-html5"></i>

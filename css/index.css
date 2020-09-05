@@ -1,9 +1,10 @@
 .navbar {
-  position: sticky;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   width: 100%;
   margin: 20px auto;
   background-color: #f0f0f0;
@@ -186,8 +187,11 @@ body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 800px;
+  padding-bottom: 50px;
   margin: 0 auto;
 }
 
@@ -200,7 +204,11 @@ body {
 }
 
 footer {
-  padding: 30px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
   text-align: center;
 }
 
