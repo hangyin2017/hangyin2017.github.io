@@ -14,11 +14,16 @@ a {
 }
 
 body {
+  position: relative;
   padding: 0;
   margin: 0;
   background-color: $background-color;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: scroll;
+}
+
+.show {
+  display: block;
 }
 
 .surname {
@@ -28,19 +33,55 @@ body {
 .container {
   display: flex;
   align-items: flex-start;
-  width: 80%;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 800px;
   margin: 0 auto;
 }
 
 .main {
-  flex: 0 0 79%;
+  flex: 0 0 100%;
+  margin-bottom: 20px;
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
-  transition: all 0.5s;
+  // transition: all 0.5s;
 }
 
 footer {
   padding: 30px;
   text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    width: 1140px;
+
+    &__nav {
+      display: block;
+    }
+
+    &__toggle {
+      display: none;
+    }
+  }
+
+  .container {
+    width: 1140px;
+  }
+
+  .main {
+    flex: 1 0 840px;
+  }
+
+  .bio {
+    flex: 0 0 250px;
+    margin-left: 15px;
+  }
+
+  .cv {
+    &__col {
+      flex: 0 0 40%;
+    }
+  }
 }

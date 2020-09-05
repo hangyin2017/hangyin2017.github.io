@@ -4,8 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0;
-  padding: 0 10%;
+  width: 100%;
+  margin: 20px auto;
   background-color: $background-color;
 
   &__name {
@@ -15,7 +15,34 @@
     font-size: 24px;
   }
 
+  &__toggle {
+    margin-right: 20px;
+    font-size: 24px;
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: $background-color;
+    transition: all 0.5s;
+
+    .navbar__link {
+      display: block;
+      border-bottom: 3px solid transparent;
+      border-left: 3px solid transparent;
+
+      &:hover,
+      &--active {
+        border-bottom: 3px solid transparent;
+        border-left: 3px solid $primary-color;
+      }
+    }
+  }
+
   &__nav {
+    display: none;
     font-size: 16px;
   }
 

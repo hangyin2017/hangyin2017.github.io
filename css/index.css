@@ -1,54 +1,60 @@
 .navbar {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 20px 0;
-  padding: 0 10%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
   background-color: #f0f0f0;
 }
-
 .navbar__name {
   display: inline-block;
   margin: 0;
   padding: 10px 10px;
   font-size: 24px;
 }
-
+.navbar__toggle {
+  margin-right: 20px;
+  font-size: 24px;
+}
+.navbar__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: #f0f0f0;
+  transition: all 0.5s;
+}
+.navbar__dropdown .navbar__link {
+  display: block;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+.navbar__dropdown .navbar__link:hover, .navbar__dropdown .navbar__link--active {
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid #63caf3;
+}
 .navbar__nav {
+  display: none;
   font-size: 16px;
 }
-
 .navbar__link {
   display: inline-block;
   padding: 14px 14px;
   margin: 0 10px;
   border-bottom: 3px solid transparent;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 .navbar__link:hover, .navbar__link--active {
   border-bottom: 3px solid #63caf3;
 }
 
 .bio {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 20%;
-          flex: 0 0 20%;
-  margin-left: 15px;
+  flex: 0 0 100%;
   border-radius: 10px;
   background-color: #fff;
 }
-
 .bio__photo {
   display: block;
   width: 150px;
@@ -56,30 +62,22 @@
   margin: 50px auto;
   border-radius: 50%;
 }
-
 .bio__content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
+  flex: 1 1;
   text-align: center;
 }
-
 .bio__name {
   font-size: 26px;
 }
-
 .bio__job {
   font-size: 20px;
 }
-
 .bio__location, .bio__company, .bio__email {
   line-height: 1.6;
 }
-
 .bio__email-link:hover {
   text-decoration: underline;
 }
-
 .bio__sns {
   padding: 20px;
   color: #000;
@@ -87,112 +85,65 @@
 }
 
 .post {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 150px;
   padding: 10px 20px;
   border-bottom: 1px solid #f0f0f0;
 }
-
 .post__date {
   color: #888888;
 }
-
 .post__wrapper {
   width: 100px;
   height: 100px;
   overflow: hidden;
 }
-
 .post__snapshot {
   width: 100%;
 }
 
 .cv {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-direction: column;
+  align-items: stretch;
   background-color: #fff;
   margin: 0 auto;
   padding-bottom: 20px;
   text-align: center;
   overflow: hidden;
 }
-
 .cv__header {
   width: 100%;
   color: #fff;
   background-color: #63caf3;
 }
-
 .cv__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   padding: 20px 40px;
 }
-
 .cv__col {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 40%;
-          flex: 0 0 40%;
-  margin: 0 40px;
+  flex: 0 0 100%;
+  margin: 0 20px;
 }
-
 .cv__skillset {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
-
 .cv__skill {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-flow: column;
+  align-items: center;
   width: 80px;
 }
-
 .cv__skill > i {
   font-size: 50px;
   line-height: 1.5;
@@ -206,8 +157,7 @@
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
@@ -216,6 +166,7 @@ a {
 }
 
 body {
+  position: relative;
   padding: 0;
   margin: 0;
   background-color: #f0f0f0;
@@ -223,33 +174,63 @@ body {
   overflow-y: scroll;
 }
 
+.show {
+  display: block;
+}
+
 .surname {
   color: #008be7;
 }
 
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  width: 80%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 800px;
   margin: 0 auto;
 }
 
 .main {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 79%;
-          flex: 0 0 79%;
+  flex: 0 0 100%;
+  margin-bottom: 20px;
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 footer {
   padding: 30px;
   text-align: center;
 }
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    width: 1140px;
+  }
+  .navbar__nav {
+    display: block;
+  }
+  .navbar__toggle {
+    display: none;
+  }
+
+  .container {
+    width: 1140px;
+  }
+
+  .main {
+    flex: 1 0 840px;
+  }
+
+  .bio {
+    flex: 0 0 250px;
+    margin-left: 15px;
+  }
+
+  .cv__col {
+    flex: 0 0 40%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -5,14 +5,26 @@ import Articles from './views/Articles.js';
 import Projects from './views/Projects.js';
 import Resume from './views/Resume.js';
 
-const main = document.querySelector('.main');
-const pageMap = {
-  '#home': Home,
-  '#articles': Articles,
-  '#projects': Projects,
-  '#resume': Resume,
+let main;
+let menuToggle;
+let pageMap;
+
+const init = () => {
+  main = document.querySelector('.main');
+  menuToggle = document.querySelector('.navbar__toggle');
+
+  menuToggle.addEventListener('click', toggleMenu);
+
+  pageMap = {
+    '#home': Home,
+    '#articles': Articles,
+    '#projects': Projects,
+    '#resume': Resume,
+  };
+
+  window.onhashchange = navigatePage;
+  navigatePage();
 };
-const navLinks = document.querySelectorAll('.navbar__link');
 
 const navigatePage = () => {
   const hash = getHash();
@@ -21,16 +33,14 @@ const navigatePage = () => {
 };
 
 const getHash = () => {
-  // let hash = location.hash;
-  // if (!pageMap[hash]) location.hash = hash = '#home';
   return pageMap[location.hash] ? location.hash : (location.hash = '#home');
 };
 
 const changeNavbar = href => {
-  const activeNavLink = document.querySelector('.navbar__link--active');
-  const clickedNavLink = document.querySelector(`[href="${href}"]`);
-  activeNavLink.classList.remove('navbar__link--active');
-  clickedNavLink.classList.add('navbar__link--active');
+  const activeNavLink = document.querySelectorAll('.navbar__link--active');
+  const clickedNavLink = document.querySelectorAll(`[href="${href}"]`);
+  activeNavLink.forEach(link => link.classList.remove('navbar__link--active'));
+  clickedNavLink.forEach(link => link.classList.add('navbar__link--active'));
 };
 
 const render = (View, element) => {
@@ -38,7 +48,13 @@ const render = (View, element) => {
   element.innerHTML = view.getHtml();
 };
 
+const toggleMenu = () => {
+  const dropdownMenu = document.querySelector('.navbar__dropdown');
+  dropdownMenu.classList[1]
+    ? dropdownMenu.classList.remove('show')
+    : dropdownMenu.classList.add('show');
+};
+
 window.onload = () => {
-  window.onhashchange = navigatePage;
-  navigatePage();
+  init();
 };
