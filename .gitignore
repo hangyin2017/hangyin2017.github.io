@@ -1,1 +1,4 @@
-/bootstrap
+.vscode/
+css/
+!css/index.css
+*.css.map

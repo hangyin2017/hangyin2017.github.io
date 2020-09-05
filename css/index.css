@@ -40,7 +40,7 @@
   border-bottom: 3px solid #63caf3;
 }
 
-.about {
+.bio {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 20%;
           flex: 0 0 20%;
@@ -49,7 +49,7 @@
   background-color: #fff;
 }
 
-.about__photo {
+.bio__photo {
   display: block;
   width: 150px;
   height: 150px;
@@ -57,30 +57,30 @@
   border-radius: 50%;
 }
 
-.about__content {
+.bio__content {
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
   text-align: center;
 }
 
-.about__name {
+.bio__name {
   font-size: 26px;
 }
 
-.about__job {
+.bio__job {
   font-size: 20px;
 }
 
-.about__location, .about__company, .about__email {
+.bio__location, .bio__company, .bio__email {
   line-height: 1.6;
 }
 
-.about__email-link:hover {
+.bio__email-link:hover {
   text-decoration: underline;
 }
 
-.about__sns {
+.bio__sns {
   padding: 20px;
   color: #000;
   font-size: 28px;
