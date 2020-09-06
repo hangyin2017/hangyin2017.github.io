@@ -1,42 +1,30 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header {
   position: sticky;
   top: 0;
   z-index: 2;
-  width: 100%;
   margin: 20px auto;
   background-color: #f0f0f0;
 }
-.navbar__name {
-  display: inline-block;
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__name {
   margin: 0;
   padding: 10px 10px;
-  font-size: 24px;
 }
-.navbar__toggle {
+.header__toggle {
+  border: none;
+  outline: none;
   margin-right: 20px;
   font-size: 24px;
 }
-.navbar__dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  background-color: #f0f0f0;
-  transition: all 0.5s;
+.header__toggle:hover {
+  cursor: pointer;
 }
-.navbar__dropdown .navbar__link {
-  display: block;
-  border-bottom: 3px solid transparent;
-  border-left: 3px solid transparent;
-}
-.navbar__dropdown .navbar__link:hover, .navbar__dropdown .navbar__link--active {
-  border-bottom: 3px solid transparent;
-  border-left: 3px solid #63caf3;
-}
-.navbar__nav {
+
+.navbar {
   display: none;
   font-size: 16px;
 }
@@ -49,6 +37,28 @@
 }
 .navbar__link:hover, .navbar__link--active {
   border-bottom: 3px solid #63caf3;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 0;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+.dropdown-menu--show {
+  max-height: 200px;
+}
+.dropdown-menu > .navbar__link {
+  display: block;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+.dropdown-menu > .navbar__link:hover, .dropdown-menu > .navbar__link--active {
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid #63caf3;
 }
 
 .bio {
@@ -175,10 +185,6 @@ body {
   overflow-y: scroll;
 }
 
-.show {
-  display: block;
-}
-
 .surname {
   color: #008be7;
 }
@@ -188,10 +194,9 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   position: relative;
-  z-index: 1;
   width: 100%;
   min-height: 800px;
-  padding-bottom: 50px;
+  padding: 0 10px 68px 10px;
   margin: 0 auto;
 }
 
@@ -208,27 +213,36 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: -1;
   padding: 25px;
   text-align: center;
 }
 
 @media screen and (min-width: 1200px) {
-  .navbar {
+  .header {
     width: 1140px;
-  }
-  .navbar__nav {
     display: block;
   }
-  .navbar__toggle {
+  .header__toggle {
+    display: none;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  .dropdown-menu {
     display: none;
   }
 
   .container {
     width: 1140px;
+    padding: 0 0 68px 0;
   }
 
   .main {
     flex: 1 0 840px;
+    margin-bottom: 0;
   }
 
   .bio {

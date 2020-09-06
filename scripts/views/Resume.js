@@ -9,9 +9,9 @@ export default class extends AbstractView {
   getHtml() {
     return `
       <div class="cv">
-        <header class="cv__header">
+        <div class="cv__header">
           <h2>RESUME</h2>
-        </header>
+        </div>
 
         <div class="cv__wrapper">
           <section class="cv__col">

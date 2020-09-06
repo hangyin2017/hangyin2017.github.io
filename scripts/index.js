@@ -8,12 +8,12 @@ import Resume from './views/Resume.js';
 let main;
 let menuToggle;
 let pageMap;
+let dropdownMenu;
 
 const init = () => {
   main = document.querySelector('.main');
-  menuToggle = document.querySelector('.navbar__toggle');
-
-  menuToggle.addEventListener('click', toggleMenu);
+  menuToggle = document.querySelector('.header__toggle');
+  dropdownMenu = document.querySelector('.dropdown-menu');
 
   pageMap = {
     '#home': Home,
@@ -22,7 +22,10 @@ const init = () => {
     '#resume': Resume,
   };
 
+  menuToggle.addEventListener('click', toggleMenu);
+  dropdownMenu.addEventListener('click', toggleMenu);
   window.onhashchange = navigatePage;
+
   navigatePage();
 };
 
@@ -49,10 +52,9 @@ const render = (View, element) => {
 };
 
 const toggleMenu = () => {
-  const dropdownMenu = document.querySelector('.navbar__dropdown');
   dropdownMenu.classList[1]
-    ? dropdownMenu.classList.remove('show')
-    : dropdownMenu.classList.add('show');
+    ? dropdownMenu.classList.remove('dropdown-menu--show')
+    : dropdownMenu.classList.add('dropdown-menu--show');
 };
 
 window.onload = () => {
