@@ -1,35 +1,32 @@
 'use strict';
 
-let pageList;
-let blogsData;
-let resumeData;
+let hashList;
 
-const init = async () => {
-  pageList = ['#home', '#blogs', '#services', '#resume'];
+const init = () => {
+  hashList = ['#home', '#blogs', '#services', '#resume'];
 
   document.querySelector('.header__toggle').addEventListener('click', toggleMenu);
   document.querySelector('.dropdown-menu').addEventListener('click', toggleMenu);
   window.onhashchange = navigatePage;
 
-  blogsData = await fetchData('blogsData');
-  resumeData = await fetchData('resumeData');
-
   createPages();
   navigatePage();
+};
+
+const createPages = async () => {
+  createBlogs(await fetchData('blogsData'));
+  createResume(await fetchData('resumeData'));
 };
 
 const fetchData = async fileName => {
   return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
 };
 
-const createPages = () => {
-  createBlogs(blogsData, document.querySelector('[data-id="home-content"]'));
-  createBlogs(blogsData, document.querySelector('[data-id="blogs-content"]'));
-  createResume();
-};
+const createBlogs = blogsData => {
+  const blogsNode = document.querySelector('[data-id="blogs-content"]');
+  const homeNode = document.querySelector('[data-id="home-content"]');
 
-const createBlogs = (postsList, parentNode) => {
-  postsList.forEach(post => {
+  blogsData.forEach(post => {
     if (!post.title || post.title === '') return;
     const postNode = document.createElement('div');
     postNode.classList.add('post');
@@ -48,25 +45,26 @@ const createBlogs = (postsList, parentNode) => {
         <img src="${post.img}" alt="${post.title}" class="post__snapshot">
       </div>
     `;
-    parentNode.appendChild(postNode);
+    blogsNode.appendChild(postNode);
+    homeNode.appendChild(postNode.cloneNode(true));
   });
 };
 
-const createResume = () => {
+const createResume = resumeData => {
   const eduNode = document.querySelector('[data-id="education"]');
   const expNode = document.querySelector('[data-id="experience"]');
 
   resumeData.forEach(data => {
-    const resumeCardNode = document.createElement('div');
+    const timelineItemNode = document.createElement('div');
 
-    resumeCardNode.classList.add('timeline__item');
-    resumeCardNode.innerHTML = `
+    timelineItemNode.classList.add('timeline__item');
+    timelineItemNode.innerHTML = `
       <h4 class="timeline__title">${data.title}</h4>
       <div class="timeline__company">${data.company}</div>
       <div class="timeline__date">${data.startDate} - ${data.endDate}</div>
     `;
-    if (data.type === 'edu') eduNode.appendChild(resumeCardNode);
-    if (data.type === 'exp') expNode.appendChild(resumeCardNode);
+    if (data.type === 'edu') eduNode.appendChild(timelineItemNode);
+    if (data.type === 'exp') expNode.appendChild(timelineItemNode);
   });
 };
 
@@ -77,12 +75,12 @@ const navigatePage = () => {
 };
 
 const getHash = () => {
-  return pageList.includes(location.hash) ? location.hash : (location.hash = '#home');
+  return hashList.includes(location.hash) ? location.hash : (location.hash = '#home');
 };
 
-const changeNavbar = href => {
+const changeNavbar = hash => {
   const activeNavLink = document.querySelectorAll('.navbar__link--active');
-  const clickedNavLink = document.querySelectorAll(`[href="${href}"]`);
+  const clickedNavLink = document.querySelectorAll(`[href="${hash}"]`);
   activeNavLink.forEach(link => link.classList.remove('navbar__link--active'));
   clickedNavLink.forEach(link => link.classList.add('navbar__link--active'));
 };
