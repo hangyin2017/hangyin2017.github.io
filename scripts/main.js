@@ -23,15 +23,15 @@ const fetchData = async fileName => {
 };
 
 const createPages = () => {
-  createBlogs(blogsData, document.querySelector('#home'));
-  createBlogs(blogsData, document.querySelector('#blogs'));
+  createBlogs(blogsData, document.querySelector('#home .page__content'));
+  createBlogs(blogsData, document.querySelector('#blogs .page__content'));
   createResume();
 };
 
 const createBlogs = (postsList, parentNode) => {
   postsList.forEach(post => {
     if (!post.title || post.title === '') return;
-    const postNode = document.createElement('article');
+    const postNode = document.createElement('div');
     postNode.classList.add('post');
     postNode.innerHTML += `
       <div>
@@ -59,11 +59,11 @@ const createResume = () => {
   resumeData.forEach(data => {
     const resumeCardNode = document.createElement('div');
 
-    resumeCardNode.classList.add('cv__card');
+    resumeCardNode.classList.add('timeline__item');
     resumeCardNode.innerHTML = `
-      <h4 class="cv-card__title">${data.title}</h4>
-      <p class="cv-card__company">${data.company}</p>
-      <div class="cv-card__date">${data.startDate} - ${data.endDate}</div>
+      <h4 class="timeline__title">${data.title}</h4>
+      <div class="timeline__company">${data.company}</div>
+      <div class="timeline__date">${data.startDate} - ${data.endDate}</div>
     `;
     if (data.type === 'edu') eduNode.appendChild(resumeCardNode);
     if (data.type === 'exp') expNode.appendChild(resumeCardNode);
@@ -88,8 +88,8 @@ const changeNavbar = href => {
 };
 
 const showPage = hash => {
-  document.querySelector('.page-show').classList.remove('page-show');
-  document.querySelector(`${hash}`).classList.add('page-show');
+  document.querySelector('.page--show').classList.remove('page--show');
+  document.querySelector(`${hash}`).classList.add('page--show');
 };
 
 const toggleMenu = () => {
