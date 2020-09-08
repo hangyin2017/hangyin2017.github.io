@@ -23,8 +23,8 @@ const fetchData = async fileName => {
 };
 
 const createPages = () => {
-  createBlogs(blogsData, document.querySelector('#home .page__content'));
-  createBlogs(blogsData, document.querySelector('#blogs .page__content'));
+  createBlogs(blogsData, document.querySelector('[data-id="home-content"]'));
+  createBlogs(blogsData, document.querySelector('[data-id="blogs-content"]'));
   createResume();
 };
 
@@ -53,8 +53,8 @@ const createBlogs = (postsList, parentNode) => {
 };
 
 const createResume = () => {
-  const eduNode = document.querySelector('#education');
-  const expNode = document.querySelector('#experience');
+  const eduNode = document.querySelector('[data-id="education"]');
+  const expNode = document.querySelector('[data-id="experience"]');
 
   resumeData.forEach(data => {
     const resumeCardNode = document.createElement('div');
@@ -89,7 +89,7 @@ const changeNavbar = href => {
 
 const showPage = hash => {
   document.querySelector('.page--show').classList.remove('page--show');
-  document.querySelector(`${hash}`).classList.add('page--show');
+  document.querySelector(`[data-id="${hash.slice(1)}"]`).classList.add('page--show');
 };
 
 const toggleMenu = () => {
