@@ -12,30 +12,86 @@
 <body>
   <header class="header">
     <div class="header__content">
-      <h2 class="header__name">Hang <span class="surname">Yin</span></h2>
+      <h2 class="header__name">Hang <span class="hignlight">Yin</span></h2>
       <button class="header__toggle"><i class="fas fa-bars"></i></button>
       <nav class="navbar">
         <a href="#home" class="navbar__link navbar__link--active">Home</a>
-        <a href="#articles" class="navbar__link">Articles</a>
-        <a href="#projects" class="navbar__link">Projects</a>
+        <a href="#blogs" class="navbar__link">Blogs</a>
+        <a href="#services" class="navbar__link">Services</a>
         <a href="#resume" class="navbar__link">Resume</a>
       </nav>
     </div>
     <nav class="dropdown-menu">
       <a href="#home" class="navbar__link navbar__link--active">Home</a>
-      <a href="#articles" class="navbar__link">Articles</a>
-      <a href="#projects" class="navbar__link">Projects</a>
+      <a href="#blogs" class="navbar__link">Blogs</a>
+      <a href="#services" class="navbar__link">Services</a>
       <a href="#resume" class="navbar__link">Resume</a>
     </nav>
   </header>
 
   <div class="container">
-    <main class="main"></main>
+    <main class="main">
+      <section class="page page-show" id="home">
+        <div class="about-me">
+          <h3>About <span class="highlight">Me</span></h3>
+          <p>Hi, I'm Hang Yin. <br>
+            A web developer.<br>
+            A learner.<br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Minima fugit modi, quisquam laborum recusandae nesciunt voluptate nulla animi. 
+            Cum, officiis.</p>
+        </div>
+      </section>
+      <section class="page" id="blogs"></section>
+      <section class="page" id="services"></section>
+      <section class="page" id="resume">
+        <div class="cv">
+          <div class="cv__header"><h2>RESUME</h2></div>    
+          <div class="cv__content">
+            <section class="cv__col" id="education"><h3>EDUCATION</h3></section>
+            <section class="cv__col" id="experience"><h3>EXPERIENCE</h3></section>
+          </div>
+          <div>
+            <h3>SKILLS</h3>
+            <div class="cv__skillset">
+              <div class="cv__skill">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="cv__skill">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="cv__skill">
+                <i class="fab fa-js"></i>
+                <span>Javascript ES6</span>
+              </div>
+              <div class="cv__skill">
+                <i class="fab fa-sass"></i>
+                <span>Sass</span>
+              </div>
+              <div class="cv__skill">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
+              <div class="cv__skill">
+                <i class="fab fa-java"></i>
+                <span>Java</span>
+              </div>            
+              <div class="cv__skill">
+                <i class="fab fa-git"></i>
+                <span>git</span>
+              </div>                                  
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <aside class="bio">
-      <img src="img/avatar.jpg" alt="Hang Yin" class="bio__photo"></img>
+      <img src="assets/img/avatar.jpg" alt="Hang Yin" class="bio__photo"></img>
       <div class="bio__content">
-        <h2 class="bio__name">Hang <span class="surname">Yin</span></h2>
+        <h2 class="bio__name">Hang <span class="highlight">Yin</span></h2>
         <h3 class="bio__job">Web Developer</h3>
         <div class="bio__contact">
           <div class="bio__location">
@@ -59,7 +115,7 @@
     </aside>
   </div>
 
-  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 <footer>&copy; 2020 All rights reserved.</footer>
 

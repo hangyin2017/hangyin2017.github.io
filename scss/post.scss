@@ -21,4 +21,8 @@
   &__snapshot {
     width: 100%;
   }
+
+  &--hidden {
+    visibility: hidden;
+  }
 }

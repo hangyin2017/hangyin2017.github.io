@@ -1,0 +1,44 @@
+[
+  {
+    "type": "edu",
+    "title": "Bachelor of Engineering",
+    "company": "The University of Adelaide",
+    "startDate": "2015",
+    "endDate": "2016"
+  },
+  {
+    "type": "edu",
+    "title": "Bachelor of Engineering",
+    "company": "University",
+    "startDate": "2010",
+    "endDate": "2014"
+  },
+  {
+    "type": "exp",
+    "title": "Web Developer",
+    "company": "Company",
+    "startDate": "2017",
+    "endDate": "2020"
+  },
+  {
+    "type": "exp",
+    "title": "Web Developer",
+    "company": "Company",
+    "startDate": "2017",
+    "endDate": "2020"
+  },
+  {
+    "type": "exp",
+    "title": "Web Developer",
+    "company": "Company",
+    "startDate": "2017",
+    "endDate": "2020"
+  },
+  {
+    "type": "exp",
+    "title": "Web Developer",
+    "company": "Company",
+    "startDate": "2017",
+    "endDate": "2020"
+  }
+]

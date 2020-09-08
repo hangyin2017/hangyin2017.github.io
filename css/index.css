@@ -116,13 +116,15 @@
 .post__snapshot {
   width: 100%;
 }
+.post--hidden {
+  visibility: hidden;
+}
 
 .cv {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   background-color: #fff;
-  margin: 0 auto;
   padding-bottom: 20px;
   text-align: center;
   overflow: hidden;
@@ -132,7 +134,7 @@
   color: #fff;
   background-color: #63caf3;
 }
-.cv__wrapper {
+.cv__content {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -160,7 +162,7 @@
   line-height: 1.5;
 }
 
-.cv-card {
+.cv__card {
   margin: 20px 0;
   padding-bottom: 10px;
   border: 1px solid #f0f0f0;
@@ -185,7 +187,7 @@ body {
   overflow-y: scroll;
 }
 
-.surname {
+.highlight {
   color: #008be7;
 }
 
@@ -196,8 +198,9 @@ body {
   position: relative;
   width: 100%;
   min-height: 800px;
-  padding: 0 10px 68px 10px;
-  margin: 0 auto;
+  padding: 0 10px;
+  margin: 0 auto 68px auto;
+  background-color: #f0f0f0;
 }
 
 .main {
@@ -206,6 +209,21 @@ body {
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
+}
+
+.page {
+  display: none;
+}
+
+.page-show {
+  display: block;
+}
+
+.about-me {
+  width: 100%;
+  height: 200px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 footer {
@@ -237,7 +255,7 @@ footer {
 
   .container {
     width: 1140px;
-    padding: 0 0 68px 0;
+    padding: 0;
   }
 
   .main {

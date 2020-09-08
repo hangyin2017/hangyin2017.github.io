@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: stretch;
   background-color: #fff;
-  margin: 0 auto;
   padding-bottom: 20px;
   text-align: center;
   overflow: hidden;
@@ -14,7 +13,7 @@
     background-color: $primary-color;
   }
 
-  &__wrapper {
+  &__content {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -47,7 +46,7 @@
   }
 }
 
-.cv-card {
+.cv__card {
   margin: 20px 0;
   padding-bottom: 10px;
   border: 1px solid $background-color;
