@@ -1,0 +1,34 @@
+.services {
+  &__title {
+    padding-top: 20px;
+  }
+
+  &__block {
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  &__icon {
+    padding-bottom: 30px;
+
+    > i {
+      font-size: 60px;
+    }
+  }
+}
+
+.client {
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  &__item {
+    padding: 30px 30px;
+
+    > i {
+      font-size: 50px;
+    }
+  }
+}

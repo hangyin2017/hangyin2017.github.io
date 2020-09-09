@@ -1,0 +1,29 @@
+.page {
+  display: none;
+
+  &--show {
+    display: block;
+  }
+
+  &__header {
+    width: 100%;
+    padding: 20px 50px;
+    color: #fff;
+    text-align: center;
+    background-color: $primary-color;
+
+    > h2 {
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #fff;
+    padding: 20px 30px;
+    overflow: hidden;
+  }
+}

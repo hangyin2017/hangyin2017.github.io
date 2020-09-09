@@ -1,12 +1,14 @@
 'use strict';
 
 let hashList;
+let dropdownMenuNode;
 
 const init = () => {
   hashList = ['#home', '#blogs', '#services', '#resume'];
+  dropdownMenuNode = document.querySelector('.dropdown-menu');
 
   document.querySelector('.header__toggle').addEventListener('click', toggleMenu);
-  document.querySelector('.dropdown-menu').addEventListener('click', toggleMenu);
+  dropdownMenuNode.addEventListener('click', toggleMenu);
   window.onhashchange = navigatePage;
 
   createPages();
@@ -29,9 +31,10 @@ const createBlogs = blogsData => {
   blogsData.forEach(post => {
     if (!post.title || post.title === '') return;
     const postNode = document.createElement('div');
+    postNode.classList.add('row');
     postNode.classList.add('post');
     postNode.innerHTML += `
-      <div>
+      <div class="col-sm-10">
         <a href="${post.href}" target="_blank">
         <h3 class="post__title">${post.title}</h3>
         </a>
@@ -41,8 +44,8 @@ const createBlogs = blogsData => {
     `;
     if (!!post.img)
       postNode.innerHTML += `
-      <div class="post__wrapper">
-        <img src="${post.img}" alt="${post.title}" class="post__snapshot">
+      <div class="post__snapshot col-sm-2">
+        <img src="${post.img}" alt="${post.title}">
       </div>
     `;
     blogsNode.appendChild(postNode);

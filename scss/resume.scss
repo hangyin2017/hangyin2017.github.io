@@ -1,17 +1,51 @@
 .timeline {
   margin-bottom: 40px;
 
+  &__header {
+    margin: 20px 0;
+  }
+
+  &__list {
+    border-left: 2px solid $background-color;
+  }
+
   &__title {
     margin: 20px 0;
-    font-size: 20px;
-    font-weight: 400;
   }
 
   &__item {
+    position: relative;
     margin: 0 0 20px 20px;
     padding: 10px 20px;
     border: 1px solid $background-color;
     border-left: 3px solid $primary-color;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 3px 3px $background-color;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: -30px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid $primary-color;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: -20px;
+      width: 20px;
+      height: 2px;
+      background-color: $primary-color;
+    }
 
     > div {
       margin-bottom: 5px;
