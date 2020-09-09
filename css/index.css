@@ -123,6 +123,11 @@
 .timeline {
   margin-bottom: 40px;
 }
+.timeline__title {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
 .timeline__item {
   margin: 0 0 20px 20px;
   padding: 10px 20px;
@@ -132,12 +137,11 @@
 .timeline__item > div {
   margin-bottom: 5px;
 }
-.timeline__title {
-  font-size: 20px;
-  font-weight: 400;
-}
 
 .skills {
+  text-align: center;
+}
+.skills__list {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;

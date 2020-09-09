@@ -1,6 +1,12 @@
 .timeline {
   margin-bottom: 40px;
 
+  &__title {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
   &__item {
     margin: 0 0 20px 20px;
     padding: 10px 20px;
@@ -11,17 +17,16 @@
       margin-bottom: 5px;
     }
   }
-
-  &__title {
-    font-size: 20px;
-    font-weight: 400;
-  }
 }
 
 .skills {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  text-align: center;
+
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
 
   &__item {
     display: flex;
