@@ -92,6 +92,7 @@ const createResume = resumeData => {
 const navigatePage = () => {
   const hash = getHash();
   changeNavbar(hash);
+  changeTitle(hash);
   showPage(hash);
 };
 
@@ -112,6 +113,16 @@ const changeNavbar = hash => {
   const clickedNavLink = document.querySelectorAll(`[href="${hash}"]`);
   activeNavLink.forEach(link => link.classList.remove('navbar__link--active'));
   clickedNavLink.forEach(link => link.classList.add('navbar__link--active'));
+};
+
+/** Change webpage title to the format like 'Hang Yin | Home' when change page. */
+const changeTitle = hash => {
+  document.title = `Hang Yin | ${capitalise(hash.slice(1))}`;
+};
+
+/** Change the input word's first letter to upper case. */
+const capitalise = word => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
 /**
