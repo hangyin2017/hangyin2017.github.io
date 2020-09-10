@@ -20,10 +20,19 @@ const createPages = async () => {
   createResume(await fetchData('resumeData'));
 };
 
+/**
+ * Fetch a json file.
+ * @param {string} fileName - The json file's name that you want to fetch.
+ * @returns {object} The promise that contains the targeted json file.
+ */
 const fetchData = async fileName => {
   return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
 };
 
+/**
+ * Dynamically create blog posts.
+ * @param {object[]} blogsData - Blogs' data in json format.
+ */
 const createBlogs = blogsData => {
   const blogsNode = document.querySelector('[data-id="blogs-content"]');
   const homeNode = document.querySelector('[data-id="home-content"]');
@@ -48,11 +57,17 @@ const createBlogs = blogsData => {
         <img src="${post.img}" alt="${post.title}">
       </div>
     `;
+
+    // Display blog posts on both blogs page and home page.
     blogsNode.appendChild(postNode);
     homeNode.appendChild(postNode.cloneNode(true));
   });
 };
 
+/**
+ * Dynamically create resume timeline items.
+ * @param {object[]} resumeData - Resume timelines' data in json format.
+ */
 const createResume = resumeData => {
   const eduNode = document.querySelector('[data-id="education"]');
   const expNode = document.querySelector('[data-id="experience"]');
@@ -66,21 +81,32 @@ const createResume = resumeData => {
       <div class="timeline__company">${data.company}</div>
       <div class="timeline__date">${data.startDate} - ${data.endDate}</div>
     `;
+
+    // Append items to either education or experience column.
     if (data.type === 'edu') eduNode.appendChild(timelineItemNode);
     if (data.type === 'exp') expNode.appendChild(timelineItemNode);
   });
 };
 
+/** Navigate page when click on the navbar. */
 const navigatePage = () => {
   const hash = getHash();
   changeNavbar(hash);
   showPage(hash);
 };
 
+/**
+ * Return current hash if it's legal, otherwise set the hash to default '#home'.
+ * @returns {string} A legal hash string.
+ */
 const getHash = () => {
   return hashList.includes(location.hash) ? location.hash : (location.hash = '#home');
 };
 
+/**
+ * Style the clicked navbar link to active.
+ * @param {string} hash - Current hash string.
+ */
 const changeNavbar = hash => {
   const activeNavLink = document.querySelectorAll('.navbar__link--active');
   const clickedNavLink = document.querySelectorAll(`[href="${hash}"]`);
@@ -88,11 +114,16 @@ const changeNavbar = hash => {
   clickedNavLink.forEach(link => link.classList.add('navbar__link--active'));
 };
 
+/**
+ * Show current page.
+ * @param {string} hash - Current hash string.
+ */
 const showPage = hash => {
   document.querySelector('.page--show').classList.remove('page--show');
   document.querySelector(`[data-id="${hash.slice(1)}"]`).classList.add('page--show');
 };
 
+/** Toggle the dropdown menu when click on the menu toggle. */
 const toggleMenu = () => {
   dropdownMenuNode.classList.contains('dropdown-menu--show')
     ? dropdownMenuNode.classList.remove('dropdown-menu--show')
