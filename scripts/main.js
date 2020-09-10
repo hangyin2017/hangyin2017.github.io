@@ -100,5 +100,5 @@ const toggleMenu = () => {
 };
 
 window.onload = () => {
-  init();
+  // init();
 };
