@@ -34,7 +34,7 @@ const createBlogs = blogsData => {
     postNode.classList.add('row');
     postNode.classList.add('post');
     postNode.innerHTML += `
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <a href="${post.href}" target="_blank">
         <h3 class="post__title">${post.title}</h3>
         </a>
@@ -44,7 +44,7 @@ const createBlogs = blogsData => {
     `;
     if (!!post.img)
       postNode.innerHTML += `
-      <div class="post__snapshot col-sm-2">
+      <div class="post__snapshot col-sm-3">
         <img src="${post.img}" alt="${post.title}">
       </div>
     `;
@@ -94,7 +94,7 @@ const showPage = hash => {
 };
 
 const toggleMenu = () => {
-  dropdownMenuNode.classList[1]
+  dropdownMenuNode.classList.contains('dropdown-menu--show')
     ? dropdownMenuNode.classList.remove('dropdown-menu--show')
     : dropdownMenuNode.classList.add('dropdown-menu--show');
 };

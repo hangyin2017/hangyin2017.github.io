@@ -26,8 +26,6 @@
 }
 
 .navbar {
-  display: none;
-  font-size: 16px;
   padding: 0;
 }
 .navbar__link {
@@ -300,20 +298,6 @@ footer {
   z-index: -1;
   padding: 25px;
   text-align: center;
-}
-
-@media screen and (min-width: 1200px) {
-  .header__toggle {
-    display: none;
-  }
-
-  .navbar {
-    display: block;
-  }
-
-  .dropdown-menu {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */

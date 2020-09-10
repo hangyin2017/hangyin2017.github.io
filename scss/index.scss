@@ -75,19 +75,3 @@ footer {
   padding: 25px;
   text-align: center;
 }
-
-@media screen and (min-width: 1200px) {
-  .header {
-    &__toggle {
-      display: none;
-    }
-  }
-
-  .navbar {
-    display: block;
-  }
-
-  .dropdown-menu {
-    display: none;
-  }
-}
