@@ -38,32 +38,31 @@ const fetchData = async fileName => {
 };
 
 const createBlogs = blogsData => {
-  const blogsNode = document.querySelector('[data-id="blogs-content"]');
-  const homeNode = document.querySelector('[data-id="home-content"]');
-
-  blogsData.forEach(post => {
-    if (!post.title || post.title === '') return;
-    const postNode = document.createElement('div');
-    postNode.classList.add('row');
-    postNode.classList.add('post');
-    postNode.innerHTML += `
-      <div class="col-sm-9">
-        <a href="${post.href}" target="_blank">
-        <h3 class="post__title">${post.title}</h3>
-        </a>
-        <div class="post__date"><i class="far fa-calendar"></i> ${post.date}</div>
-        <p class="post__content">${post.content}</p>
-      </div>
-    `;
-    if (!!post.img)
-      postNode.innerHTML += `
-      <div class="post__snapshot col-sm-3">
-        <img src="${post.img}" alt="${post.title}">
-      </div>
-    `;
-    blogsNode.appendChild(postNode);
-    homeNode.appendChild(postNode.cloneNode(true));
-  });
+  // const blogsNode = document.querySelector('[data-id="blogs-content"]');
+  // const homeNode = document.querySelector('[data-id="home-content"]');
+  // blogsData.forEach(post => {
+  //   if (!post.title || post.title === '') return;
+  //   const postNode = document.createElement('div');
+  //   postNode.classList.add('row');
+  //   postNode.classList.add('post');
+  //   postNode.innerHTML += `
+  //     <div class="col-sm-9">
+  //       <a href="${post.href}" target="_blank">
+  //       <h3 class="post__title">${post.title}</h3>
+  //       </a>
+  //       <div class="post__date"><i class="far fa-calendar"></i> ${post.date}</div>
+  //       <p class="post__content">${post.content}</p>
+  //     </div>
+  //   `;
+  //   if (!!post.img)
+  //     postNode.innerHTML += `
+  //     <div class="post__snapshot col-sm-3">
+  //       <img src="${post.img}" alt="${post.title}">
+  //     </div>
+  //   `;
+  //   blogsNode.appendChild(postNode);
+  //   homeNode.appendChild(postNode.cloneNode(true));
+  // });
 };
 
 const createResume = resumeData => {
