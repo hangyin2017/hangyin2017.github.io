@@ -10,10 +10,13 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(jsx|js)$/,
         use: {
           loader: 'babel-loader',
           options: {
