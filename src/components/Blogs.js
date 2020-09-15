@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const Blogs = () => {
-  let blogsData = fetchBlogs();
-
+const Blogs = ({ data }) => {
   return (
     <section className='page' data-id='blogs'>
       <div className='page__header'>
         <h2>BLOGS</h2>
       </div>
       <div className='page__content' data-id='blogs-content'>
-        {blogsData.map((post, index) => (
+        {data.map((post, index) => (
           <Post key={index} post={post} />
         ))}
       </div>
@@ -17,22 +15,18 @@ const Blogs = () => {
   );
 };
 
-const fetchData = async fileName => {
-  return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
-};
+/** Use hook to fetch async data. */
+// const fetchBlogs = () => {
+//   let [blogsData, setBlogsData] = useState([]);
+//   useEffect(function fetch() {
+//     (async function () {
+//       setBlogsData(await fetchData('blogsData'));
+//     })();
+//   }, []);
+//   return blogsData;
+// };
 
-const fetchBlogs = () => {
-  let [blogsData, setBlogsData] = useState([]);
-  useEffect(function fetch() {
-    (async function () {
-      setBlogsData(await fetchData('blogsData'));
-    })();
-  }, []);
-  return blogsData;
-};
-
-const Post = props => {
-  const post = props.post;
+const Post = ({ post }) => {
   if (!post) return null;
   if (!post.title || post.title === '') return null;
   return (

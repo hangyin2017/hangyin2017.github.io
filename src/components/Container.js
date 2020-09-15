@@ -4,12 +4,12 @@ import Blogs from './Blogs';
 import Services from './Services';
 import Resume from './Resume';
 
-const Container = () => (
+const Container = ({ blogsData }) => (
   <div className='container'>
     <main className='col-xl-9'>
       <div className='main'>
         <Home></Home>
-        <Blogs></Blogs>
+        <Blogs data={blogsData}></Blogs>
         <Services></Services>
         <Resume></Resume>
       </div>

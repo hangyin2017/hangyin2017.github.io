@@ -1,13 +1,33 @@
-import React from 'react';
-import Header from '../components/Header';
-import Container from '../components/Container';
+import React, { Component } from 'react';
+import Header from '../Header';
+import Container from '../Container';
 
-const App = () => (
-  <div>
-    <Header></Header>
-    <Container></Container>
-  </div>
-);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      blogsData: [],
+      resumeData: [],
+    };
+  }
+
+  async fetchData(fileName) {
+    return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
+  }
+
+  componentDidMount() {
+    fetchData('blogsData').then(data => this.setState({ blogsData: data }));
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Container blogsData={this.state.blogsData} />
+      </div>
+    );
+  }
+}
 
 export default App;
 
