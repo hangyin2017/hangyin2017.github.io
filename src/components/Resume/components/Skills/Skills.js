@@ -36,8 +36,10 @@ const Skills = () => {
     <div className="row skills">
       <h3 className="col-12">SKILLS</h3>
       <div className="skills__list col-12">
-        {skills.map(skill => (
-          <Item icon={skill.icon}>{skill.text}</Item>
+        {skills.map((skill, index) => (
+          <Item key={index} icon={skill.icon}>
+            {skill.text}
+          </Item>
         ))}
       </div>
     </div>
