@@ -1,6 +1,7 @@
 import React from 'react';
-import Home from './Home';
-import Blogs from './Blogs';
+import Home from './Home/Home';
+import Blogs from './Blogs/Blogs';
+import BlogsContent from './Blogs/components/Content';
 import Services from './Services';
 import Resume from './Resume';
 
@@ -8,10 +9,12 @@ const Container = ({ blogsData }) => (
   <div className='container'>
     <main className='col-xl-9'>
       <div className='main'>
-        <Home></Home>
-        <Blogs data={blogsData}></Blogs>
-        <Services></Services>
-        <Resume></Resume>
+        <Home>
+          <BlogsContent data={blogsData} />
+        </Home>
+        <Blogs data={blogsData} />
+        <Services />
+        <Resume />
       </div>
     </main>
 
