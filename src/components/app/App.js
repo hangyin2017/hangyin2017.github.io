@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import Header from '../Header';
-import Container from '../Container';
+import Header from '../Header/Header';
+import Home from '../Home/Home';
+import Blogs from '../Blogs/Blogs';
+import BlogsContent from '../Blogs/components/Content';
+import Services from '../Services/Services';
+import Resume from '../Resume/Resume';
+import Bio from '../Bio/Bio';
 
 class App extends Component {
   constructor(props) {
@@ -20,10 +25,24 @@ class App extends Component {
   }
 
   render() {
+    const blogsData = this.state.blogsData;
     return (
       <div>
         <Header />
-        <Container blogsData={this.state.blogsData} />
+        <div className="container">
+          <main className="col-xl-9">
+            <div className="main">
+              <Home>
+                <BlogsContent data={blogsData} />
+              </Home>
+              <Blogs data={blogsData} />
+              <Services />
+              <Resume />
+            </div>
+          </main>
+
+          <Bio />
+        </div>
       </div>
     );
   }

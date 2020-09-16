@@ -1,9 +1,9 @@
 import React from 'react';
 import AboutMe from './components/AboutMe';
-import Page from '../Page';
+import Page from '../Pages/Page';
 
 const Home = ({ children }) => (
-  <Page title='home' isShow>
+  <Page title="home" isShow>
     <AboutMe />
     {children}
   </Page>

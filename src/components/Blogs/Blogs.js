@@ -1,10 +1,10 @@
 import React from 'react';
-import Page from '../Page';
+import Page from '../Pages/Page';
 import Content from './components/Content';
 
 const Blogs = ({ data }) => {
   return (
-    <Page title='blogs'>
+    <Page title="blogs">
       <Content data={data} />
     </Page>
   );
