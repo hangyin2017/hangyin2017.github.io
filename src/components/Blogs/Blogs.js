@@ -1,16 +1,12 @@
 import React from 'react';
+import Page from '../Page';
 import Content from './components/Content';
 
 const Blogs = ({ data }) => {
   return (
-    <section className='page' data-id='blogs'>
-      <div className='page__header'>
-        <h2>BLOGS</h2>
-      </div>
-      <div className='page__content' data-id='blogs-content'>
-        <Content data={data} />
-      </div>
-    </section>
+    <Page title='blogs'>
+      <Content data={data} />
+    </Page>
   );
 };
 
