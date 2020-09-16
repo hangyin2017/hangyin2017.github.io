@@ -6,6 +6,7 @@ import BlogsContent from '../Blogs/components/Content';
 import Services from '../Services/Services';
 import Resume from '../Resume/Resume';
 import Bio from '../Bio/Bio';
+import Footer from '../Footer/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -40,9 +41,9 @@ class App extends Component {
               <Resume />
             </div>
           </main>
-
           <Bio />
         </div>
+        <Footer />
       </div>
     );
   }
