@@ -3,7 +3,7 @@ import Page from '../../common/Page';
 import Timeline from './components/Timeline';
 import Skills from './components/Skills';
 
-const Resume = () => {
+const Resume = ({ fetchData }) => {
   let eduData = [],
     expData = [];
   let [timelineData, setTimelineData] = useState([]);
@@ -30,7 +30,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
-const fetchData = async fileName => {
-  return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
-};

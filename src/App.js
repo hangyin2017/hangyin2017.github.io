@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './common/Header';
 import Home from './pages/Home';
 import Blogs from './pages/Blogs';
-import BlogsList from './common/BlogsList';
 import Services from './pages/Services';
 import Resume from './pages/Resume';
 import Bio from './common/Bio';
@@ -13,11 +12,10 @@ class App extends Component {
     super(props);
     this.state = {
       blogsData: [],
-      resumeData: [],
     };
   }
 
-  async fetchData(fileName) {
+  fetchData(fileName) {
     return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
   }
 
@@ -33,12 +31,10 @@ class App extends Component {
         <div className="container">
           <main className="col-xl-9">
             <div className="main">
-              <Home>
-                <BlogsList data={blogsData} />
-              </Home>
+              <Home data={blogsData} />
               <Blogs data={blogsData} />
               <Services />
-              <Resume />
+              <Resume fetchData={this.fetchData} />
             </div>
           </main>
           <Bio />
@@ -64,35 +60,11 @@ const init = () => {
   dropdownMenuNode.addEventListener('click', toggleMenu);
   window.onhashchange = navigatePage;
 
-  // createPages();
   navigatePage();
-};
-
-const createPages = async () => {
-  // createBlogs(await fetchData('blogsData'));
-  // createResume(await fetchData('resumeData'));
 };
 
 const fetchData = async fileName => {
   return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
-};
-
-const createResume = resumeData => {
-  const eduNode = document.querySelector('[data-id="education"]');
-  const expNode = document.querySelector('[data-id="experience"]');
-
-  resumeData.forEach(data => {
-    const timelineItemNode = document.createElement('div');
-
-    timelineItemNode.classList.add('timeline__item');
-    timelineItemNode.innerHTML = `
-      <h4 class="timeline__title">${data.title}</h4>
-      <div class="timeline__company">${data.company}</div>
-      <div class="timeline__date">${data.startDate} - ${data.endDate}</div>
-    `;
-    if (data.type === 'edu') eduNode.appendChild(timelineItemNode);
-    if (data.type === 'exp') expNode.appendChild(timelineItemNode);
-  });
 };
 
 const navigatePage = () => {
