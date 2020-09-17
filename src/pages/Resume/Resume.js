@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { fetchData } from '../../utils';
 import Page from '../../common/Page';
 import Timeline from './components/Timeline';
 import Skills from './components/Skills';
 
-const Resume = ({ fetchData }) => {
-  let eduData = [],
-    expData = [];
+const Resume = () => {
+  let eduData = [], expData = [];
   let [timelineData, setTimelineData] = useState([]);
+
   useEffect(() => {
     fetchData('resumeData').then(data => {
       setTimelineData(data);

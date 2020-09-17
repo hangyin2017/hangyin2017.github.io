@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fetchData } from './utils';
 import Header from './common/Header';
 import Home from './pages/Home';
 import Blogs from './pages/Blogs';
@@ -12,11 +13,13 @@ class App extends Component {
     super(props);
     this.state = {
       blogsData: [],
+      navItems: [
+        { key: 'home', active: true },
+        { key: 'blogs', active: false },
+        { key: 'services', active: false },
+        { key: 'resume', active: false },
+      ],
     };
-  }
-
-  fetchData(fileName) {
-    return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
   }
 
   componentDidMount() {
@@ -34,7 +37,7 @@ class App extends Component {
               <Home data={blogsData} />
               <Blogs data={blogsData} />
               <Services />
-              <Resume fetchData={this.fetchData} />
+              <Resume />
             </div>
           </main>
           <Bio />
@@ -61,10 +64,6 @@ const init = () => {
   window.onhashchange = navigatePage;
 
   navigatePage();
-};
-
-const fetchData = async fileName => {
-  return fetch(`./assets/json/${fileName}.json`).then(res => res.json());
 };
 
 const navigatePage = () => {
