@@ -6,7 +6,7 @@ import BlogsList from '../../common/BlogsList';
 const Home = ({ data }) => (
   <Page title="home" isShow>
     <AboutMe />
-    <BlogsList data={data} />
+    {/* <BlogsList data={data} /> */}
   </Page>
 );
 

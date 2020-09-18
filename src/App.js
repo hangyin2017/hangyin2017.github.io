@@ -14,10 +14,10 @@ class App extends Component {
     this.state = {
       blogsData: [],
       navItems: [
-        { key: 'home', active: true },
-        { key: 'blogs', active: false },
-        { key: 'services', active: false },
-        { key: 'resume', active: false },
+        { key: 'home', page: <Home /> },
+        { key: 'blogs', page: <Blogs /> },
+        { key: 'services', page: <Services /> },
+        { key: 'resume', page: <Resume /> },
       ],
     };
   }
@@ -30,14 +30,21 @@ class App extends Component {
     const blogsData = this.state.blogsData;
     return (
       <div>
-        <Header />
+        <Header navItems={this.state.navItems} />
         <div className="container">
           <main className="col-xl-9">
             <div className="main">
-              <Home data={blogsData} />
+              {
+                this.state.navItems.map(item => (
+                  <React.Fragment key={item.key}>
+                    {item.page}
+                  </React.Fragment>
+                ))
+              }
+              {/* <Home data={blogsData} />
               <Blogs data={blogsData} />
               <Services />
-              <Resume />
+              <Resume /> */}
             </div>
           </main>
           <Bio />

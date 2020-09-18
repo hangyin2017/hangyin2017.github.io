@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './components/Post';
 
-const Content = ({ data }) => {
+const BlogsList = ({ data }) => {
   return (
     <div>
       {data.map((post, index) => (
@@ -11,4 +11,4 @@ const Content = ({ data }) => {
   );
 };
 
-export default Content;
+export default BlogsList;
