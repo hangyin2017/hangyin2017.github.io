@@ -1,15 +1,18 @@
 import React from 'react';
 import NavItem from '../NavItem';
+import { toCapitalWord } from '../../../../utils';
 
-const MobileDropdown = () => {
+const MobileDropdown = ({ navItems, currentPage, isShow, onMobileDropdownClick }) => {
   return (
-    <nav className="dropdown-menu d-xl-none">
-      <NavItem to="#home" active>
-        Home
-      </NavItem>
-      <NavItem to="#blogs">Blogs</NavItem>
-      <NavItem to="#services">Services</NavItem>
-      <NavItem to="#resume">Resume</NavItem>
+    <nav
+      className={`dropdown-menu d-xl-none ${isShow ? 'dropdown-menu--show' : ''}`}
+      onClick={onMobileDropdownClick}
+    >
+      {navItems.map(navItem => (
+        <NavItem key={navItem.key} to={`#${navItem.key}`} active={currentPage === navItem.key}>
+          {toCapitalWord(navItem.key)}
+        </NavItem>
+      ))}
     </nav>
   );
 };

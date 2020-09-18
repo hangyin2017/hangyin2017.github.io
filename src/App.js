@@ -11,19 +11,18 @@ import Footer from './common/Footer';
 class App extends Component {
   constructor(props) {
     super(props);
-    const navItems = [
+    this.navItems = [
       { key: 'home', page: <Home /> },
       { key: 'blogs', page: <Blogs /> },
       { key: 'services', page: <Services /> },
       { key: 'resume', page: <Resume /> },
     ];
 
-    const defaultPage = navItems[0].key;
+    this.homePage = this.navItems[0].key;
 
     this.state = {
       blogsData: [],
-      navItems,
-      currentPage: defaultPage,
+      currentPage: this.homePage,
     };
 
     this.navigatePage = this.navigatePage.bind(this);
@@ -43,9 +42,10 @@ class App extends Component {
   getCurrentPage() {
     const pageList = this.state.navItems.map(navItem => navItem.key);
     let currentPage = location.hash.slice(1);
+    console.log(this);
     if (pageList.indexOf(currentPage) < 0) {
-      currentPage = defaultPage;
-      location.hash = `#${defaultPage}`;
+      currentPage = this.homePage;
+      location.hash = `#${this.homePage}`;
     }
     return currentPage;
   };
@@ -55,15 +55,15 @@ class App extends Component {
   }
 
   render() {
-    const { blogsData, navItems, currentPage } = this.state;
+    const { blogsData, currentPage } = this.state;
     return (
       <div>
-        <Header navItems={navItems} currentPage={currentPage} />
+        <Header navItems={this.navItems} currentPage={currentPage} />
         <div className="container">
           <main className="col-xl-9">
             <div className="main">
               {/* {
-                this.state.navItems.map(item => (
+                this.navItems.map(item => (
                   <React.Fragment key={item.key}>
                     {item.page}
                   </React.Fragment>
@@ -84,25 +84,3 @@ class App extends Component {
 }
 
 export default App;
-
-('use strict');
-
-let dropdownMenuNode;
-
-const init = () => {
-  dropdownMenuNode = document.querySelector('.dropdown-menu');
-
-  document.querySelector('.header__toggle').addEventListener('click', toggleMenu);
-  dropdownMenuNode.addEventListener('click', toggleMenu);
-
-};
-
-const toggleMenu = () => {
-  dropdownMenuNode.classList.contains('dropdown-menu--show')
-    ? dropdownMenuNode.classList.remove('dropdown-menu--show')
-    : dropdownMenuNode.classList.add('dropdown-menu--show');
-};
-
-window.onload = () => {
-  init();
-};

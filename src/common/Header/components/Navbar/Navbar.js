@@ -1,6 +1,6 @@
 import React from 'react';
 import NavItem from '../NavItem';
-import { toCapitalWord } from '../../../../utils'
+import { toCapitalWord } from '../../../../utils';
 
 const Navbar = ({ navItems, currentPage }) => {
   return (
