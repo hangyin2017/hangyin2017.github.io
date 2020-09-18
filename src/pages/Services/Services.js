@@ -3,9 +3,9 @@ import Page from '../../common/Page';
 import MyServices from './components/MyServices';
 import Clients from './components/Clients';
 
-const Services = () => {
+const Services = ({ isShow }) => {
   return (
-    <Page title="services">
+    <Page title="services" isShow={isShow}>
       <MyServices />
       <Clients />
     </Page>

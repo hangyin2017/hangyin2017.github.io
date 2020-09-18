@@ -4,7 +4,7 @@ import Page from '../../common/Page';
 import Timeline from './components/Timeline';
 import Skills from './components/Skills';
 
-const Resume = () => {
+const Resume = ({ isShow }) => {
   let eduData = [], expData = [];
   let [timelineData, setTimelineData] = useState([]);
 
@@ -20,7 +20,7 @@ const Resume = () => {
   });
 
   return (
-    <Page title="resume">
+    <Page title="resume" isShow={isShow}>
       <div className="row">
         <Timeline header="education" data={eduData} />
         <Timeline header="experience" data={expData} />

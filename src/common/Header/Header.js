@@ -4,14 +4,14 @@ import MobileDropdownToggle from './components/MobileDropdownToggle';
 import Navbar from './components/Navbar';
 import MobileDropdown from './components/MobileDropdown';
 
-const Header = ({ navItems }) => (
+const Header = ({ navItems, currentPage }) => (
   <header className="header container-sm">
     <div className="header__content">
       <Logo />
       <MobileDropdownToggle />
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} currentPage={currentPage} />
     </div>
-    <MobileDropdown navItems={navItems} />
+    <MobileDropdown navItems={navItems} currentPage={currentPage} />
   </header>
 );
 

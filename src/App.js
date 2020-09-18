@@ -11,40 +11,68 @@ import Footer from './common/Footer';
 class App extends Component {
   constructor(props) {
     super(props);
+    const navItems = [
+      { key: 'home', page: <Home /> },
+      { key: 'blogs', page: <Blogs /> },
+      { key: 'services', page: <Services /> },
+      { key: 'resume', page: <Resume /> },
+    ];
+
+    const defaultPage = navItems[0].key;
+
     this.state = {
       blogsData: [],
-      navItems: [
-        { key: 'home', page: <Home /> },
-        { key: 'blogs', page: <Blogs /> },
-        { key: 'services', page: <Services /> },
-        { key: 'resume', page: <Resume /> },
-      ],
+      navItems,
+      currentPage: defaultPage,
     };
+
+    this.navigatePage = this.navigatePage.bind(this);
   }
 
   componentDidMount() {
     fetchData('blogsData').then(data => this.setState({ blogsData: data }));
+    window.onhashchange = this.navigatePage;
+    this.navigatePage();
+  }
+
+  navigatePage() {
+    const currentPage = this.getCurrentPage();
+    this.setCurrentPage(currentPage);
+  };
+
+  getCurrentPage() {
+    const pageList = this.state.navItems.map(navItem => navItem.key);
+    let currentPage = location.hash.slice(1);
+    if (pageList.indexOf(currentPage) < 0) {
+      currentPage = defaultPage;
+      location.hash = `#${defaultPage}`;
+    }
+    return currentPage;
+  };
+
+  setCurrentPage(pageName) {
+    this.setState({ currentPage: pageName });
   }
 
   render() {
-    const blogsData = this.state.blogsData;
+    const { blogsData, navItems, currentPage } = this.state;
     return (
       <div>
-        <Header navItems={this.state.navItems} />
+        <Header navItems={navItems} currentPage={currentPage} />
         <div className="container">
           <main className="col-xl-9">
             <div className="main">
-              {
+              {/* {
                 this.state.navItems.map(item => (
                   <React.Fragment key={item.key}>
                     {item.page}
                   </React.Fragment>
                 ))
-              }
-              {/* <Home data={blogsData} />
-              <Blogs data={blogsData} />
-              <Services />
-              <Resume /> */}
+              } */}
+              <Home isShow={currentPage === 'home'} data={blogsData} />
+              <Blogs isShow={currentPage === 'blogs'} data={blogsData} />
+              <Services isShow={currentPage === 'services'} />
+              <Resume isShow={currentPage === 'resume'} />
             </div>
           </main>
           <Bio />
@@ -59,40 +87,14 @@ export default App;
 
 ('use strict');
 
-let hashList;
 let dropdownMenuNode;
 
 const init = () => {
-  hashList = ['#home', '#blogs', '#services', '#resume'];
   dropdownMenuNode = document.querySelector('.dropdown-menu');
 
   document.querySelector('.header__toggle').addEventListener('click', toggleMenu);
   dropdownMenuNode.addEventListener('click', toggleMenu);
-  window.onhashchange = navigatePage;
 
-  navigatePage();
-};
-
-const navigatePage = () => {
-  const hash = getHash();
-  changeNavbar(hash);
-  showPage(hash);
-};
-
-const getHash = () => {
-  return hashList.includes(location.hash) ? location.hash : (location.hash = '#home');
-};
-
-const changeNavbar = hash => {
-  const activeNavLink = document.querySelectorAll('.navbar__link--active');
-  const clickedNavLink = document.querySelectorAll(`[href="${hash}"]`);
-  activeNavLink.forEach(link => link.classList.remove('navbar__link--active'));
-  clickedNavLink.forEach(link => link.classList.add('navbar__link--active'));
-};
-
-const showPage = hash => {
-  document.querySelector('.page--show').classList.remove('page--show');
-  document.querySelector(`[data-id="${hash.slice(1)}"]`).classList.add('page--show');
 };
 
 const toggleMenu = () => {
